@@ -45,10 +45,10 @@ const ArtisanCarousel = ({ images = [] }) => {
     const anglePerImage = 360 / displayImages.length;
     const targetRotation = 180 - (currentIndex * anglePerImage);
 
-    // Animate the ring to the target rotation
+    // Animate the ring to the target rotation with smooth transition
     gsap.to(ringRef.current, {
       rotationY: targetRotation,
-      duration: 0.6,
+      duration: 0.8,
       ease: 'power2.out'
     });
 
