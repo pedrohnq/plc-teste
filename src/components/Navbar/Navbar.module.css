@@ -1,0 +1,119 @@
+/* src/components/Navbar/Navbar.module.css */
+
+.navbar {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 50px;
+    align-items: center;
+}
+
+.navList {
+    list-style: none;
+    display: flex;
+    width: 60%;
+    justify-content: space-around;
+    max-width: 700px;
+    padding: 0;
+    margin: 0;
+}
+
+.navListItem {
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        bottom: 0.5rem;
+        left: 0;
+        transform: scaleX(0);
+        transform-origin: bottom center;
+        transition: transform 0.3s ease-out, height 0.3s ease-out;
+    }
+}
+
+.navListItem:hover {
+    color: white;
+    transform: scale(1.1);
+    &::after {
+        transform: scaleX(0.7);
+        height: 2px;
+        background-color: white;
+    }
+}
+
+.active {
+    font-weight: bold;
+    color: white;
+    &::after {
+        transform: scaleX(1);
+        height: 2px;
+        background-color: white;
+    }
+}
+
+/* Botão navButton burger alinhao a esquerda na parte superior da navbar, deve ocultar o texto e só mostrar o icone de menu, mostrando os itens quando clicado */
+.navButton {
+    background-color: transparent;
+    display: none;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    z-index: 100;
+}
+
+
+@media (max-width: 768px) {
+    .navList {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navButton {
+        display: block;
+    }
+
+    .navList {
+        display: none;
+    }
+
+    .navListItem {
+        display: none;
+ }
+}
+
+
+@media (max-width: 480px) {
+    .navList {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navButton {
+        display: block;
+    }
+
+    .navList {
+        display: none;
+    }
+}
+
+.navActive {
+    display: flex;
+}
